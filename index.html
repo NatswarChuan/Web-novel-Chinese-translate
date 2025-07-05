@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-novel Chinese translate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+
+    <!-- Container chính, trạng thái được quản lý bởi JS -->
+    <div class="container" data-status="initial" data-mode="display" data-active-tab="source">
+        <header>
+            <h1>Web-novel Chinese translate</h1>
+            <p>Dịch truyện Trung sang Việt theo văn phong truyện mạng và nghe bản dịch</p>
+            <!-- Nút cài đặt sẽ được thêm vào đây bởi JS -->
+            <div id="header-controls-container" class="header-btn"></div>
+        </header>
+
+        <!-- Các controls cho Desktop -->
+        <div id="desktop-main-controls" class="main-controls">
+            <div class="glass-panel api-key-panel">
+                <label for="apiKey">Google AI API Key (Bắt buộc)</label>
+                <input type="password" id="apiKey" placeholder="Dán API Key của bạn vào đây">
+            </div>
+            <div class="glass-panel settings-panel">
+                 <label for="autoPlayToggle" title="Tự động đọc sau khi dịch xong">Tự động đọc</label>
+                 <div class="toggle-switch">
+                    <input type="checkbox" id="autoPlayToggle">
+                    <label for="autoPlayToggle" class="slider"></label>
+                </div>
+            </div>
+        </div>
+
+        <div id="desktop-action-container" class="flex-center">
+             <button id="translateBtn" class="main-action-btn">
+                <i data-lucide="sparkles"></i>
+                <span>Dịch</span>
+            </button>
+        </div>
+
+        <div class="mobile-tabs">
+            <button class="tab-btn" data-tab="source">Văn bản gốc</button>
+            <button class="tab-btn" data-tab="translation">Bản dịch</button>
+        </div>
+
+        <div class="translation-grid">
+            <div class="panel" data-panel="source">
+                <div class="panel-header">
+                    <h2>Văn bản gốc (Tiếng Trung)</h2>
+                    <div id="source-controls" class="source-controls">
+                        <button id="pasteBtn" class="icon-btn" title="Dán từ Clipboard"><i data-lucide="clipboard-paste"></i></button>
+                        <button id="clearBtn" class="icon-btn" title="Xóa toàn bộ"><i data-lucide="trash-2"></i></button>
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <textarea id="sourceText" class="editor-area" placeholder="Dán văn bản tiếng Trung...">夜凉如水。
+
+云水国青城水家。
+
+“啊……”一道惨叫声从水府一处阴暗的柴房里传出，振聋发聩，好不凄厉。
+
+破旧的柴房里，一名黄衣少女立于一侧，正一脸恶毒地盯着角落里的人，一只手上握着散发臭气的瓶子，另一只手上捏着一根粗长铁鞭。
+
+一名白衣少女蜷缩在角落里，大半张脸已经被毁得惨不忍睹。
+
+“小贱人，这蚀肤水的味道怎么样啊？看你还敢不敢勾引我云哥哥，你这该死的狐狸精！”
+
+黄衣少女目光阴毒，似嫌不够，又将瓶中剩余的蚀肤水全部撒到了那白衣女子脸上，顺带着朝女子后背摔了几铁鞭。
+
+白衣少女捂着脸连连惨叫出声，身子因为疼痛紧紧缩成了一团。
+
+她艰难地伸出另一只手，拽住了黄衣少女的衣角，声音沙哑地道：“四……四姐，我没有勾引云哥哥，我喜欢的是……是二皇子。”
+
+“我呸！”水吟雪一脸嘲讽地啐她一口，一脚便踩在那纤纤玉手之上，狠狠地来回捻着。
+
+听着对方的痛呼声，女子脸上划过一丝快意，尖声尖气地道：“水吟蝉，你也不撒泡尿照照自己，连玄气都设有的废物也妄想成为二皇子妃？二皇子可是我们云水国水火双习的天才，如今你不仅是废物，连这张勾人的脸蛋也被毁了，我看现在的你，还给二皇子提鞋都不够资格！”
+
+水吟蝉的脸上被蚀肤水一浇，已经被腐蚀出了一个个斗大的脓包，还散发着一股恶臭，那双还算明亮的眼睛也在听到水吟雪的一番话后变得黯淡下来。
+
+“四小姐，四小姐……”
+
+水吟雪正准备再踹地上那人几脚，守门的婆子却忽地破门而入，急匆匆地凑近她耳边嘀咕了几句。
+
+水吟雪一听，方才还扭曲着的脸立马就舒展开了，惊喜道：“林婆子，二皇子果然已经到我们水家了？居然提前到了！”
+
+这话一出，蜷缩在地上的水吟蝉眼睛也跟着亮了一下，立马恳求道：“四姐，我要见二皇子，我要见他！”
+
+“哈哈，笑死人了！就你现在这副丑样，人入避之不及，你也不怕玷污了二皇子那般高贵的人儿！你勾引我云哥哥，差点给二皇子戴了绿帽子，二皇子不杀了你这贱人就不错了，还妄想真的当二皇子妃不成？简直是白日做梦！”
+
+水吟雪冷冷嘲讽一通，又狠狠朝她粹了几脚，这才离开了这个让她觉得肮脏无比的地方。
+
+水吟蝉双腿有几处骨折，连站起来都困难，但她抱着心中最后那一丝希望，一点点爬到柴房门口。
+
+她用自己的额头一下又一下地撞着门，鲜血顺着额头股股地往下流，边捶边喃喃自语地道：“我没有跟勾引云哥哥，我没有……二皇子，我要见二皇子……”
+
+捶了约莫五六十下，门终于被撞开，水吟蝉咧嘴笑了一下。
+
+女子用自己的胳膊腿艰难地往前爬着，满身的鲜血和恶水顺着她爬过的地方染了一路。
+
+只可惜……
+
+她穷尽所有的力气，也只爬出了五六丈的距离。
+
+她的气息越来越弱。
+
+最终，那匍匐着往前爬的娇弱身形慢慢静止了下来。
+
+一动不动，气息全无。
+
+未过多久，水吟蝉那软垂下的指尖忽地又颤动了一下，紧接着又是一下。
+
+下一刻，女子轻阖住的眸子猛地一下睁开，那一瞬间，似有犀利的煞气从中溢出。随即，那煞气微敛，那双眸子变得格外晶亮璀璨，宛如缀满了星光宝石的夜幕，深邃而迷人。</textarea>
+                    <div id="char-counter" class="char-counter">0 ký tự</div>
+                </div>
+            </div>
+            <div class="panel" data-panel="translation">
+                 <div class="panel-header">
+                    <h2>Bản dịch (Tiếng Việt)</h2>
+                    <!-- Audio controls cho desktop -->
+                    <div id="desktop-audio-controls-container">
+                        <div id="audio-controls" class="audio-controls">
+                            <button id="edit-btn" class="icon-btn" title="Sửa bản dịch"><i data-lucide="edit"></i></button>
+                            <button id="copy-btn" class="icon-btn" title="Sao chép bản dịch"><i data-lucide="copy"></i></button>
+                            <button id="lock-btn" class="icon-btn" title="Khóa/Mở khóa chọn câu"><i data-lucide="unlock"></i></button>
+                            <button id="play-btn" class="icon-btn" title="Đọc"><i data-lucide="play-circle"></i></button>
+                            <button id="pause-btn" class="icon-btn" title="Tạm dừng"><i data-lucide="pause-circle"></i></button>
+                            <button id="stop-btn" class="icon-btn" title="Dừng"><i data-lucide="stop-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="editor-wrapper result-wrapper">
+                    <div id="result-display" class="editor-area editor-output"></div>
+                    <textarea id="result-editor" class="editor-area editor-input"></textarea>
+                    <div class="state-overlay initial-state-message">
+                        <i data-lucide="languages"></i>
+                        <p>Bản dịch sẽ xuất hiện ở đây</p>
+                    </div>
+                    <div class="state-overlay loading-state-message">
+                        <div class="spinner"></div>
+                        <p>Đang dịch, vui lòng chờ...</p>
+                    </div>
+                     <div class="state-overlay error-state-message">
+                        <i data-lucide="alert-triangle"></i>
+                        <p>Đã xảy ra lỗi</p>
+                        <span id="error-details"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thanh công cụ cố định cho Mobile -->
+    <div id="mobile-footer">
+        <!-- Nút Dịch hoặc Audio Controls sẽ được chuyển vào đây bởi JS -->
+    </div>
+
+    <!-- Modal Cài đặt -->
+    <div id="settings-modal" class="modal-overlay">
+        <div class="glass-panel modal-content">
+            <button id="close-modal-btn" class="icon-btn close-btn"><i data-lucide="x"></i></button>
+            <h3>Cài đặt</h3>
+            <div class="modal-option">
+                <label for="modal-apiKey">Google AI API Key</label>
+                <!-- Input này sẽ được đồng bộ với input chính -->
+            </div>
+             <div id="modal-api-key-container"></div>
+            <div class="modal-option">
+                <label for="modal-autoPlayToggle">Tự động đọc sau khi dịch</label>
+                 <div id="modal-auto-play-container"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="toast" role="alert" aria-live="assertive"></div>
+    
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>

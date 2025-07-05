@@ -1,0 +1,6 @@
+export const MODEL_NAME = "gemma-3-27b-it";
+export const PROMPT_TEMPLATE = `You are an expert literary translator specializing in Chinese to Vietnamese web novels. Your task is to translate the following text with high fidelity to the Vietnamese web novel style. **Translation Requirements:** 1. **Style Priority:** The translation must be smooth, engaging, immersive, and formatted like typical online serialized fiction in Vietnam. 2. **Sino-Vietnamese Terms:** Strictly use Sino-Vietnamese (Hán-Việt) for all names, titles, cultivation systems, locations, and ranks (e.g., "Tiên tôn", "Linh khí", "Ma giới"). 3. **Pronoun Convention:** Do NOT use modern, everyday Vietnamese pronouns (like “tôi”, “bạn”, “anh ấy”, "cô ấy"). You MUST use pronouns conventional to web novels, such as “nàng”, “hắn”, “y”, “bổn tọa”, “lão phu”, “người kia”. 4. **Purity:** The output must be **ENTIRELY** in Vietnamese. Do not include any Chinese characters, pinyin, or untranslated text. 5. **Formatting:** Preserve paragraph breaks from the source text. **Source Text to Translate:**\n---\n{SOURCE_TEXT}\n---\n**Vietnamese Translation:`;
+export const STORAGE_KEYS = {
+    API_KEY: 'gemini_api_key',
+    AUTO_PLAY: 'auto_play_enabled',
+};
